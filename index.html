@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div class="input_button">
+      <input class="input" type="text" name="" value="" placeholder="Cerca un film">
+      <button type="button" name="button">Visualizza</button>
+    </div>
+    <div class="container">
+    </div>
+
+    <script src="main.js" charset="utf-8"></script>
+
+    <script id="template_film" type="text/x-handlebars-template">
+      <div class="film">
+        <h2>Titolo: <span>{{titolo}}</span></h3>
+        <h4>Titolo originale: <span>{{tit_orig}}</span></h4>
+        <h4>Lingua: <span>{{lingua}}</span></h4>
+        <h4>Voto: <span>{{voto}}</span></h4>
+      </div>
+    </script>
+
+  </body>
+</html>
