@@ -45,11 +45,16 @@ $(document).ready(function(){
           var language = data.results[i].original_language;
           var bandiera = inserisci_bandiera(language);
 
+          var finale_url_img = data.results[i].poster_path;
+          var indirizzo_img = crea_url_locandina(finale_url_img);
+
+
           template_film_variables = {
             "titolo": data.results[i].title,
             "tit_orig": data.results[i].original_title,
             "lingua": bandiera,
-            "voto": voto_stelle
+            "voto": voto_stelle,
+            "url_img": indirizzo_img
           };
           var html = template_film_function(template_film_variables);
 
@@ -61,7 +66,6 @@ $(document).ready(function(){
       }
     });
   }
-
 
   function ricerca_serie(nome_serie){
     $.ajax({
@@ -84,11 +88,15 @@ $(document).ready(function(){
           var language = data.results[i].original_language;
           var bandiera = inserisci_bandiera(language);
 
+          var finale_url_img = data.results[i].poster_path;
+          var indirizzo_img = crea_url_locandina(finale_url_img);
+
           template_serie_variables = {
             "nome": data.results[i].name,
             "nome_orig": data.results[i].original_name,
             "lingua": bandiera,
-            "voto": voto_stelle
+            "voto": voto_stelle,
+            "url_img": indirizzo_img
           };
           var html = template_serie_function(template_serie_variables);
 
@@ -102,13 +110,23 @@ $(document).ready(function(){
   }
 
 
+  function crea_url_locandina(stringa_finale){
+    var url_completo = "";
+
+    if (stringa_finale == null || stringa_finale == "") {
+      url_completo = "img/locandina_non_disponibile.jpg";
+    } else {
+      url_completo = "https://image.tmdb.org/t/p/" + "w342/" + stringa_finale;
+    }
+    return url_completo;
+  }
+
   function converti_voto(voto_film){
 
     var voto_da_convertire = Math.ceil(voto_film / 2);
-
     var stelle_totali = "";
-    for (var i = 0; i < 5; i++) {
 
+    for (var i = 0; i < 5; i++) {
       if (i < voto_da_convertire) {
         stelle_totali += '<i class="fas fa-star"></i>'
       } else {
@@ -122,19 +140,19 @@ $(document).ready(function(){
 
     switch (sigla_lingua) {
       case "it":
-      sigla_lingua = '<img src="flags/flag_italy.png">';
+      sigla_lingua = '<img src="img/flags/flag_italy.png">';
         break;
       case "en":
-      sigla_lingua = '<img src="flags/flag_us_uk.png">';
+      sigla_lingua = '<img src="img/flags/flag_us_uk.png">';
         break;
       case "es":
-      sigla_lingua = '<img src="flags/flag_spain.png">';
+      sigla_lingua = '<img src="img/flags/flag_spain.png">';
         break;
       case "fr":
-      sigla_lingua = '<img src="flags/flag_france.png">';
+      sigla_lingua = '<img src="img/flags/flag_france.png">';
         break;
       case "de":
-      sigla_lingua = '<img src="flags/flag_germany.svg">';
+      sigla_lingua = '<img src="img/flags/flag_germany.svg">';
         break;
     }
     return sigla_lingua;
