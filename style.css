@@ -28,6 +28,10 @@ button{
 }
 
 .container{
+  width: 100%;
+}
+
+.container_film{
   width: 97%;
   margin: 0 auto;
   padding: 10px;
@@ -36,7 +40,16 @@ button{
   justify-content: space-around;
 }
 
-.film{
+.container_serie{
+  width: 97%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contenuto{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,20 +64,20 @@ button{
   border: 4px solid #990000;
 }
 
-.film h2{
+.contenuto h2{
   margin-bottom: 30px;
 }
 
-.film h4{
+.contenuto h4{
   margin-top: 15px;
 }
 
 
-.film span{
+.contenuto span{
   color: #990000;
 }
 
-.film img{
-  width: 10%;
-  height: auto;
+.contenuto img{
+  width: 30px;
+  height: 20px;
 }

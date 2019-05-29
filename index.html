@@ -15,16 +15,29 @@
     </div>
 
     <div class="container">
+      <div class="container_film">
+        <h1>Film</h1>
+      </div>
+      <div class="container_serie">
+        <h1>Serie TV</h1>
+      </div>
     </div>
-
-    <!-- <img src="flags/italy.png"> -->
 
     <script src="main.js" charset="utf-8"></script>
 
     <script id="template_film" type="text/x-handlebars-template">
-      <div class="film">
+      <div class="contenuto">
         <h2>Titolo: <span>{{titolo}}</span></h3>
         <h4>Titolo originale: <span>{{tit_orig}}</span></h4>
+        <h4>Lingua: <span>{{{lingua}}}</span></h4>
+        <h4>Voto: <span>{{{voto}}}</span></h4>
+      </div>
+    </script>
+
+    <script id="template_serie" type="text/x-handlebars-template">
+      <div class="contenuto">
+        <h2>Titolo: <span>{{nome}}</span></h3>
+        <h4>Titolo originale: <span>{{nome_orig}}</span></h4>
         <h4>Lingua: <span>{{{lingua}}}</span></h4>
         <h4>Voto: <span>{{{voto}}}</span></h4>
       </div>
