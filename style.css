@@ -4,46 +4,93 @@
   padding: 0;
 }
 
-.input_button{
-  width:100%;
-  margin: 10px 0;
-  text-align: center;
+body{
+  background: #0d0d0d;
+}
+
+header{
+  width: 97%;
+  margin: 0 auto;
+  height: 50px;
+}
+
+.header-left{
+  float: left;
+  display: flex;
+  line-height: 50px;
+}
+
+.titolo{
+  text-transform: uppercase;
+  color: #cc0000;
+}
+
+.navbar ul{
+  display: flex;
+  list-style-type: none;
+  color: white;
+  margin-left: 20px;
+}
+
+.navbar ul li{
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.navbar ul li a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.header_right{
+  float: right;
+  line-height: 50px;
 }
 
 input{
-  width: 250px;
+  width: 200px;
   height: 30px;
+  border-radius: 30px;
+  border-style:groove;
+  margin-right: 10px;
 }
 
 button{
   text-align: center;
-  background-color: #4d4d4d;
+  background-color: #cc0000;
 	border-radius: 30px;
-	border:2px solid #990000;
 	cursor: pointer;
+  text-transform: uppercase;
   font-weight: bold;
+  border: 0;
   height:30px;
 	color: white;
 	padding:7px 20px;
 }
 
 .container{
-  width: 100%;
+  width: 92%;
+  margin: 0 auto;
 }
 
-.container_film{
-  width: 97%;
+.container h2{
+  color: white;
+  text-transform: uppercase;
+  margin: 30px 0 10px 0;
+  font-weight: 500;
+}
+
+.box_film{
+  width: 100%;
   margin: 0 auto;
-  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.container_serie{
-  width: 97%;
+.box_serie{
+  width: 100%;
   margin: 0 auto;
-  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -54,19 +101,22 @@ button{
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #4d4d4d;
-  border-radius: 5px;
+  background-color: #0d0d0d;
   color: white;
-  width: 22%;
+  width: 18%;
   padding: 10px;
-  margin:1.5%;
+  margin-bottom: 20px;
   height:300px;
-  border: 4px solid #990000;
+}
+
+.locandina{
+  width: 100%;
+  height: 100%;
 }
 
 .locandina img{
-  width: 50px;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .descrizione h2{
@@ -77,12 +127,35 @@ button{
   margin-top: 15px;
 }
 
-
-.descrizione span{
-  color: #990000;
+.descrizione img{
+  width: 25px;
+  height: 15px;
 }
 
-.descrizione img{
-  width: 30px;
-  height: 20px;
+.active{
+  display: block;
+}
+
+.contenuto .hidden{
+  display: none;
+}
+
+.pd-10{
+  padding: 10px;
+}
+
+.pd-0{
+  padding: 0;
+}
+
+.border-1sw{
+  border: 1px solid white;
+}
+
+.descrizione{
+  overflow:auto;
+}
+
+.overwiew span{
+  font-weight: lighter;
 }

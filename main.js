@@ -6,6 +6,7 @@ $(document).ready(function(){
   var template_serie_function = Handlebars.compile(template_serie);
 
   var basic_api = "https://api.themoviedb.org/3";
+  var basic_url_img = "https://image.tmdb.org/t/p/";
 
   $(".container_film").hide();
   $(".container_serie").hide();
@@ -18,6 +19,49 @@ $(document).ready(function(){
     if (event.which == 13) {
       mostra_contenuti();
     }
+  });
+
+  $(".box_film").on("mouseenter", ".contenuto", function(){
+    $(this).removeClass("pd-0");
+    $(this).children(".locandina").addClass("hidden");
+    $(this).children(".descrizione").removeClass("hidden");
+    $(this).addClass("border-1sw");
+  });
+
+  $(".box_serie").on("mouseenter", ".contenuto", function(){
+    $(this).removeClass("pd-0");
+    $(this).children(".locandina").addClass("hidden");
+    $(this).children(".descrizione").removeClass("hidden");
+    $(this).addClass("border-1sw");
+  });
+
+  $(".box_film").on("mouseleave", ".contenuto", function(){
+    $(this).addClass("pd-0");
+    $(this).children(".locandina").removeClass("hidden");
+    $(this).children(".descrizione").addClass("hidden");
+    $(this).removeClass("border-1sw");
+  });
+
+  $(".box_serie").on("mouseleave", ".contenuto", function(){
+    $(this).addClass("pd-0");
+    $(this).children(".locandina").removeClass("hidden");
+    $(this).children(".descrizione").addClass("hidden");
+    $(this).removeClass("border-1sw");
+  });
+
+  $(".menu_home").click(function(){
+    $(".container_film").fadeIn();
+    $(".container_serie").fadeIn();
+  });
+
+  $(".menu_serie_tv").click(function(){
+    $(".container_film").hide();
+    $(".container_serie").fadeIn();
+  });
+
+  $(".menu_film").click(function(){
+    $(".container_film").fadeIn();
+    $(".container_serie").hide();
   });
 
 
@@ -54,11 +98,12 @@ $(document).ready(function(){
             "tit_orig": data.results[i].original_title,
             "lingua": bandiera,
             "voto": voto_stelle,
+            "descrizione": data.results[i].overview,
             "url_img": indirizzo_img
           };
           var html = template_film_function(template_film_variables);
 
-          $(".container_film").append(html);
+          $(".box_film").append(html);
         }
       },
       error: function () {
@@ -96,11 +141,12 @@ $(document).ready(function(){
             "nome_orig": data.results[i].original_name,
             "lingua": bandiera,
             "voto": voto_stelle,
+            "descrizione": data.results[i].overview,
             "url_img": indirizzo_img
           };
           var html = template_serie_function(template_serie_variables);
 
-          $(".container_serie").append(html);
+          $(".box_serie").append(html);
         }
       },
       error: function () {
@@ -109,14 +155,13 @@ $(document).ready(function(){
     });
   }
 
-
   function crea_url_locandina(stringa_finale){
     var url_completo = "";
 
     if (stringa_finale == null || stringa_finale == "") {
       url_completo = "img/locandina_non_disponibile.jpg";
     } else {
-      url_completo = "https://image.tmdb.org/t/p/" + "w342/" + stringa_finale;
+      url_completo = basic_url_img + "w342/" + stringa_finale;
     }
     return url_completo;
   }
@@ -161,8 +206,8 @@ $(document).ready(function(){
   function mostra_contenuti(){
     $(".container_film").hide();
     $(".container_serie").hide();
-    $(".container_film").empty();
-    $(".container_serie").empty();
+    $(".box_film").empty();
+    $(".box_serie").empty();
     $(".container_film").fadeIn();
     $(".container_serie").fadeIn();
     var contenuti_cercati = $(".input").val();
